@@ -1,7 +1,7 @@
 import JokesContainer from "@/components/jokesContainer";
 
 const getJokes = async () => {
-  const data = await fetch(process.env.apiUrl);
+  const data = await fetch(process.env.apiUrl, { next: { revalidate: 60 } });
   const response = data.json();
   return response;
 };

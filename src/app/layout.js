@@ -1,17 +1,33 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import profileImage from "../../public/profile.svg";
+import Image from "next/image";
+import "./globals.css"
 
 export const metadata = {
-  title: 'Create Next App',
-  description: 'Have you smiled today?',
-}
+  title: "Jokeville",
+  description: "Have you smiled today?",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-zinc-900 text-white">
+        <nav className="flex justify-between p-3 px-6 items-center bg-zinc-800 shadow-lg">
+          <h1 className="text-4xl inline h-min carter-one">
+            Jokeville
+          </h1>
+          <div className="inline items-center cursor-pointer">
+            <Image
+              className="m-auto bg-white rounded-full"
+              src={profileImage}
+              alt="You Profile"
+              width={35}
+              height={35}
+            />
+            <span className="text-white">Profile</span>
+          </div>
+        </nav>
+        {children}
+      </body>
     </html>
-  )
+  );
 }
